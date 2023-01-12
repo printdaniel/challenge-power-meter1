@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework import routers
 from .views import MedidorViewSet, MedicionViewSet
-from .mediciones_consumo import MedicionMaximaView, MedicionMinimaView, ConsumoTotalView
+from .mediciones_consumo import MedicionMaximaView, MedicionMinimaView, ConsumoTotalView, ConsumoPromedioView
 
 router = routers.DefaultRouter()
 router.register('medidores', MedidorViewSet)
@@ -12,4 +12,5 @@ urlpatterns = [
     path('mediciones-maximas/<str:llave>/', MedicionMaximaView.as_view()),
     path('mediciones-minimas/<str:llave>/', MedicionMinimaView.as_view()),
     path('consumo-total/<str:llave>/', ConsumoTotalView.as_view()),
+    path('consumo-promedio/<str:llave>/', ConsumoPromedioView.as_view()),
 ]
