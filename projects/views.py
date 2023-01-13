@@ -7,6 +7,7 @@ class MedidorSerializer(serializers.ModelSerializer):
         model = Medidor
         fields = ('llave', 'nombre')
 
+
 class MedidorViewSet(viewsets.ModelViewSet):
     queryset = Medidor.objects.all()
     serializer_class = MedidorSerializer
@@ -15,6 +16,9 @@ class MedicionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Medicion
         fields = ('medidor', 'fecha_hora', 'consumo')
+
+    def __str__(self):
+        return self.nombre
 
 class MedicionViewSet(viewsets.ModelViewSet):
     queryset = Medicion.objects.all()
