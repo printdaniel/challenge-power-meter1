@@ -6,6 +6,12 @@ from .views import MedicionSerializer
 from django.db.models import Sum, Avg
 
 class MedicionMaximaView(APIView):
+    """
+    Esta clase permite obtener el valor máximo de consumo de un medidor específico.
+    Métodos:
+        - get: permite obtener el valor máximo de consumo de un medidor específico
+        ingresando su llave en el endpoint.
+    """
     def get(self, request, llave):
         try:
             medidor = Medidor.objects.get(llave=llave)
@@ -17,6 +23,12 @@ class MedicionMaximaView(APIView):
 
 
 class MedicionMinimaView(APIView):
+    """
+    Esta clase permite obtener el valor minimo de consumo de un medidor específico.
+    Métodos:
+        - get: permite obtener el valor máximo de consumo de un medidor específico 
+        ingresando su llave en endpoint.
+    """
     def get(self, request, llave):
         try:
             medidor = Medidor.objects.get(llave=llave)
@@ -28,6 +40,11 @@ class MedicionMinimaView(APIView):
 
 
 class ConsumoTotalView(APIView):
+    """
+    Esta clase permite obtener el consumo total de un medidor específico.
+    Métodos:
+        - get: permite obtener el valor máximo de consumo de un medidor específico.
+    """
     def get(self, request, llave):
         try:
             medidor = Medidor.objects.get(llave=llave)
@@ -38,6 +55,11 @@ class ConsumoTotalView(APIView):
 
 
 class ConsumoPromedioView(APIView):
+    """
+    Esta clase permite obtener el consumo promedio de un medidor específico.
+    Métodos:
+        - get: permite obtener el valor máximo de consumo de un medidor específico.
+    """
     def get(self, request, llave):
         try:
             medidor = Medidor.objects.get(llave=llave)
